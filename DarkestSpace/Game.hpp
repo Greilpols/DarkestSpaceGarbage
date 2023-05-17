@@ -4,8 +4,8 @@
 #include "SDL2/SDL.h"
 #include <iostream>
 
-class Game {
-
+class Game
+{
 public:
 	Game();
 	~Game();
