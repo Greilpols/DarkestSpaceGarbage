@@ -143,6 +143,8 @@
     <ClInclude Include="ECS.hpp" />
     <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="Map.hpp" />
+    <ClInclude Include="PositionComponent.hpp" />
+    <ClInclude Include="SpriteComponent.hpp" />
     <ClInclude Include="TextureManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,20 +1,16 @@
 #include "Game.hpp"
 #include "TextureManager.hpp"
-#include "GameObject.hpp"
 #include "Map.hpp"
-
-#include "ECS.hpp"
 #include "Components.hpp"
 
-GameObject* player;
-GameObject* enemy;
 //something missing here
 Map* map;
 
 SDL_Renderer* Game::renderer = nullptr;
 
 Manager manager;
-auto& newPlayer(manager.addEntity());
+
+auto& player(manager.addEntity());
 
 
 Game::Game()
@@ -52,12 +48,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	// Removes 3 lines of code (see ep. #2)
-	// Followed by adding a line to show playerTex
+	player.addComponent<PositionComponent>(200,200);
+	player.addComponent<SpriteComponent>("assets/playerIcon.png");
 
-	player = new GameObject("assets/player.png", 0, 0);
-
-	enemy = new GameObject("assets/enemy.png", 50, 50);
 
 	map = new Map();
 
@@ -84,21 +77,20 @@ void Game::handleEvents()
 
 void Game::update() {
 
-	player->Update();
-	enemy->Update();
-
+	manager.refresh();
 	manager.update();
-	std::cout << newPlayer.getComponent<PositionComponent>().x() << "," <<
-		newPlayer.getComponent<PositionComponent>().y() << std::endl;
 
+	if (player.getComponent<PositionComponent>().x() > 300)
+	{
+		player.getComponent<SpriteComponent>().setTexture("assets/dead.png");
+	}
 }
 
 void Game::render() {
 	SDL_RenderClear(renderer);
 	map->DrawMap();
 	//Rendering stuff goes here
-	player->Render();
-	enemy->Render();
+	manager.draw();
 	SDL_RenderPresent(renderer);
 }
 
