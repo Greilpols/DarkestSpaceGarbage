@@ -44,3 +44,41 @@ Vector2D& Vector2D::Div(const Vector2D& vec)
 
 	return *this;
 }
+
+Vector2D& operator+(Vector2D& v1, const Vector2D& v2)
+{
+	return v1.Add(v2);
+}
+
+Vector2D& operator-(Vector2D& v1, const Vector2D& v2)
+{
+	return v1.Sub(v2);
+}
+
+Vector2D& operator*(Vector2D& v1, const Vector2D& v2)
+{
+	return v1.Mult(v2);
+}
+
+Vector2D& operator/(Vector2D& v1, const Vector2D& v2)
+{
+	return v1.Div(v2);
+}
+
+
+Vector2D& Vector2D::operator+=(const Vector2D& vec)
+{
+	return this->Add(vec);
+}
+Vector2D& Vector2D::operator-=(const Vector2D& vec)
+{
+	return this->Sub(vec);
+}
+Vector2D& Vector2D::operator*=(const Vector2D& vec)
+{
+	return this->Mult(vec);
+}
+Vector2D& Vector2D::operator/=(const Vector2D& vec)
+{
+	return this->Div(vec);
+}
