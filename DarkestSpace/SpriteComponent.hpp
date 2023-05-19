@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Components.hpp"
-#include "SDL2/SDL.h"
+#include "../../SDL2/include/SDL.h"
 
 class SpriteComponent : public Component
 {
