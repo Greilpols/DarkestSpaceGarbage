@@ -2,6 +2,7 @@
 #include "TextureManager.hpp"
 #include "Map.hpp"
 #include "Components.hpp"
+#include "Vector2D.hpp"
 
 //something missing here
 Map* map;
@@ -56,9 +57,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	// Technically neither playerTex nor player.png exist yet.
 
-	newPlayer.addComponent<PositionComponent>();
-	newPlayer.getComponent<PositionComponent>().setPos(500, 500);
-
 }
 
 void Game::handleEvents()
@@ -79,8 +77,9 @@ void Game::update() {
 
 	manager.refresh();
 	manager.update();
+	player.getComponent<PositionComponent>().position.Add(Vector2D(5, 0));
 
-	if (player.getComponent<PositionComponent>().x() > 300)
+	if (player.getComponent<PositionComponent>().position.x > 300)
 	{
 		player.getComponent<SpriteComponent>().setTexture("assets/dead.png");
 	}
