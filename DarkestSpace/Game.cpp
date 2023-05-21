@@ -51,7 +51,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	player.addComponent<PositionComponent>(200,200);
 	player.addComponent<SpriteComponent>("assets/playerIcon.png");
-
+	player.addComponent<KeyboardController>();
 
 	map = new Map();
 
@@ -80,12 +80,6 @@ void Game::update() {
 
 	manager.refresh();
 	manager.update();
-	player.getComponent<PositionComponent>().position.Add(Vector2D(5, 0));
-
-	if (player.getComponent<PositionComponent>().position.x > 300)
-	{
-		player.getComponent<SpriteComponent>().setTexture("assets/dead.png");
-	}
 }
 
 void Game::render() {
