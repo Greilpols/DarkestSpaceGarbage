@@ -2,6 +2,7 @@
 
 #include "Components.hpp"
 #include "../../SDL2/include/SDL.h"
+#include "TextureManager.hpp"
 
 class SpriteComponent : public Component
 {
@@ -16,6 +17,10 @@ public:
 	SpriteComponent(const char* path)
 	{
 		setTexture(path);
+	}
+	~SpriteComponent()
+	{
+		SDL_DestroyTexture(texture);
 	}
 
 	void setTexture(const char* path)
