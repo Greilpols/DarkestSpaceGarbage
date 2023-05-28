@@ -7,7 +7,7 @@ class ColliderComponent : public Component
 {
 public:
 
-	SDL_Rect Collider;
+	SDL_Rect collider;
 	std::string tag;
 
 	PositionComponent* transform;
@@ -21,4 +21,11 @@ public:
 		transform = &entity->getComponent<PositionComponent>();
 	}
 
+	void update() override
+	{
+		collider.x = transform->position.x;
+		collider.x = transform->position.y;
+		collider.w = transform->width * transform->scale;
+		collider.h = transform->height * transform->scale;
+	}
 };
