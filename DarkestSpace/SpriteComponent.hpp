@@ -32,15 +32,17 @@ public:
 	{
 		position = &entity->getComponent<PositionComponent>();
 
-		srcRect.x = srcRect.y = 0;
-		srcRect.w = srcRect.h = 32;
+		srcRect.x = position->height;
+		srcRect.w = position->width;
 		destRect.w = destRect.y = 64;
 	}
 
 	void update() override
 	{
-		destRect.x = (int)transform->position.x;
-		destRect.y = (int)transform->position.y;
+		destRect.x = (int)position->position.x;
+		destRect.y = (int)position->position.y;
+		destRect.w = position->width * position->scale;
+		destRect.h = position->height * position->scale;
 	}
 
 	void draw() override
