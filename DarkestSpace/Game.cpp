@@ -3,6 +3,7 @@
 #include "Map.hpp"
 #include "Components.hpp"
 #include "Vector2D.hpp"
+#include "Collision.hpp"
 
 //something missing here
 Map* map;
@@ -12,7 +13,7 @@ SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
 
 auto& player(manager.addEntity());
-
+auto& wall(manager.addEntity());
 
 Game::Game()
 {}
@@ -52,6 +53,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	player.addComponent<PositionComponent>(200,200);
 	player.addComponent<SpriteComponent>("assets/playerIcon.png");
 	player.addComponent<KeyboardController>();
+
+	
 
 	map = new Map();
 
