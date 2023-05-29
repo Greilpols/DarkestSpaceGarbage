@@ -53,8 +53,11 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	player.addComponent<PositionComponent>(200,200);
 	player.addComponent<SpriteComponent>("assets/playerIcon.png");
 	player.addComponent<KeyboardController>();
+	player.addComponent<ColliderComponent>("player");
 
-	
+	wall.addComponent<PositionComponent>(300.0f, 300.0f, 300, 20, 1);
+	wall.addComponent<SpriteComponent>("testTexture.png");
+	wall.addComponent<ColliderComponent>("wall");
 
 	map = new Map();
 
