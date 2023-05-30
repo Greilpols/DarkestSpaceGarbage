@@ -23,8 +23,8 @@ public:
 
 	void update() override
 	{
-		collider.x = transform->position.x;
-		collider.x = transform->position.y;
+		collider.x = static_cast<int>(transform->position.x);
+		collider.x = static_cast<int>(transform->position.y);
 		collider.w = transform->width * transform->scale;
 		collider.h = transform->height * transform->scale;
 	}
