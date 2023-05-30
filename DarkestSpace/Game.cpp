@@ -50,7 +50,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	player.addComponent<PositionComponent>(200,200);
+	player.addComponent<PositionComponent>(2);
 	player.addComponent<SpriteComponent>("assets/playerIcon.png");
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
