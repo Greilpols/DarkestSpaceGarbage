@@ -86,6 +86,12 @@ void Game::update() {
 
 	manager.refresh();
 	manager.update();
+
+	if (Collision::AABB(player.getComponent<ColliderComponent>().collider,
+		wall.getComponent<ColliderComponent>().collider))
+	{
+		std::cout << "Hit a wall" << std::endl;	//just for testing for now, make sure collision properly functions
+	}
 }
 
 void Game::render() {
