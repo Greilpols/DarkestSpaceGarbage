@@ -12,6 +12,11 @@ public:
 
 	PositionComponent* transform;
 
+	ColliderComponent(std::string t)
+	{
+		tag = t;
+	}
+
 	void init() override
 	{
 		if (!entity->hasComponent<PositionComponent>())
