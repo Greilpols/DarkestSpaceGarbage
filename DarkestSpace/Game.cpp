@@ -90,6 +90,8 @@ void Game::update() {
 	if (Collision::AABB(player.getComponent<ColliderComponent>().collider,
 		wall.getComponent<ColliderComponent>().collider))
 	{
+		player.getComponent<PositionComponent>().velocity * -1; // swaps direction (minor bounce to make player stop at wall)
+		// if just stopping speed, it'd cause the player to get +1 deeper into the wall by just holding button down
 		std::cout << "Hit a wall" << std::endl;	//just for testing for now, make sure collision properly functions
 	}
 }
