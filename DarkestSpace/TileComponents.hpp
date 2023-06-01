@@ -22,5 +22,20 @@ class TileComponent : Component
 		tileRect.w = w;
 		tileRect.h = h;
 		tileID = id;
+
+		switch (tileID)
+		{
+		case 0:
+			path = "water.png";
+			break;
+		case 1:
+			path = "grass.png";
+			break;
+		case 2:
+			path = "dirt.png";
+			break;
+		default:
+			break;
+		}
 	}
 };
