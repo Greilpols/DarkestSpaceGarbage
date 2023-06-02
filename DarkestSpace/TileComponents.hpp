@@ -11,7 +11,7 @@ class TileComponent : Component
 
 	SDL_Rect tileRect;
 	int tileID;
-	char* path;
+	const char* path;
 
 	TileComponent() = default;
 
@@ -37,5 +37,14 @@ class TileComponent : Component
 		default:
 			break;
 		}
+	}
+
+	void init() override
+	{
+		entity->addComponent<PositionComponent>(tileRect.x, tileRect.y, tileRect.w, tileRect.h, 1);
+		transform = &entity->getComponent<PositionComponent>();
+
+		entity->addComponent<SpriteComponent>(path);	// fix case if no path is set
+		sprite = &entity->getComponent<SpriteComponent>();
 	}
 };
