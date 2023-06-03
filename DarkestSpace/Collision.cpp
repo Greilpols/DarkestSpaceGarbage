@@ -21,5 +21,7 @@ bool Collision::AABB(const ColliderComponent& colA, const ColliderComponent& col
 	if (AABB(colA.collider, colB.collider))
 	{
 		std::cout << "hit test" << std::endl;
+		return true;
 	}
+	return false;
 }
