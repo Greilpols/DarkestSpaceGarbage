@@ -111,7 +111,7 @@ void Game::update() {
 
 void Game::render() {
 	SDL_RenderClear(renderer);
-	map->DrawMap();
+	//map->DrawMap();//this entirely outdated now, no?
 	//Rendering stuff goes here
 	manager.draw();
 	SDL_RenderPresent(renderer);
