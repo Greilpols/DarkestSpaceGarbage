@@ -41,7 +41,7 @@ class TileComponent : Component
 
 	void init() override
 	{
-		entity->addComponent<PositionComponent>(tileRect.x, tileRect.y, tileRect.w, tileRect.h, 1);
+		entity->addComponent<PositionComponent>((float)tileRect.x, (float)tileRect.y, tileRect.w, tileRect.h, 1);
 		transform = &entity->getComponent<PositionComponent>();
 
 		entity->addComponent<SpriteComponent>(path);	// fix case if no path is set
