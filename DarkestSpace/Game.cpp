@@ -5,6 +5,8 @@
 #include "Vector2D.hpp"
 #include "Collision.hpp"
 
+SDL_Texture* playerTex;
+
 //something missing here
 Map* map;
 Manager manager;
@@ -36,7 +38,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		flags = SDL_WINDOW_FULLSCREEN;
 	}
 
-	if (SDL_init(SDL_INIT_EVERYTHING) == 0)
+	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
 		std::cout << "Subsystems initialized(SDL init)" << std::endl;
 
@@ -74,7 +76,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	map = new Map();
 
-	// Technically neither playerTex nor player.png exist yet.
+	SDL_Surface* tmpSurface = IMG_Load("assets/player.png");
 
 }
 
@@ -117,6 +119,6 @@ void Game::render() {
 void Game::clean() {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
-	SDL_QUIT();
+	SDL_Quit();
 	std::cout << "Cleaned up. Exiting." << std::endl;
 }
