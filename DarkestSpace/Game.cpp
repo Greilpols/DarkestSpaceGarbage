@@ -65,6 +65,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	map = new Map();
 
+	Map::LoadMap("assets/p16x16test1.map", 16, 16);
+
 	SDL_Surface* tmpSurface = IMG_Load("assets/player.png");
 
 }
