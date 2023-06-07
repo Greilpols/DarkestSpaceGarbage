@@ -9,13 +9,14 @@
 
 class Component;
 class Entity;
+class Manager;
 
 using ComponentID = std::size_t;
+using Group = std::size_t;
 
-inline ComponentID getComponentTypeID()
+inline ComponentID getNewComponentTypeID()
 {
-	static ComponentID lastID = 0;
-
+	static ComponentID lastID = 0u;
 	return lastID++;
 }
 
@@ -27,8 +28,11 @@ template <typename T> inline ComponentID getComponentTypeID() noexcept
 }
 
 constexpr std::size_t maxComponents = 32;
+constexpr std::size_t maxGroups = 32;
 
 using ComponentBitSet = std::bitset<maxComponents>;
+using GroupBitSet = std::bitset<maxGroups>;
+
 using ComponentArray = std::array<Component*, maxComponents>;
 
 class Component
