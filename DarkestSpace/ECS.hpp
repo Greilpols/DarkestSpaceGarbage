@@ -50,13 +50,16 @@ public:
 class Entity
 {
 private:
+	Manager& manager;
 	bool active = true;
 	std::vector<std::unique_ptr<Component>> components;
 
 	ComponentArray componentArray;
 	ComponentBitSet componentBitSet;
+	GroupBitSet groupBitSet;
 
 public:
+	Entity(Manager& mManager) : manager(mManager) {}
 	void update()
 	{
 		for (auto& c : components) c->update();
@@ -70,6 +73,15 @@ public:
 
 	bool isActive() const { return active; }
 	void destroy() { active = false; }
+
+	bool hasGroup(Group mGroup) {
+		return groupBitSet[mGroup];
+	}
+
+	void addGroup(Group mGroup);
+	void delGroup(Group mGroup) {
+		groupBitSet[mGroup] = false;
+	}
 
 	template <typename T> bool hasComponent() const
 	{
