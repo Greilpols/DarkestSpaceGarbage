@@ -158,10 +158,13 @@ public:
 		groupedEntities[mGroup].emplace_back(mEntity);
 	}
 
-
+	std::vector<Entity*>& getGroup(Group mGroup)
+	{
+		return groupedEntities[mGroup];
+	}
 
 	Entity& addEntity() {
-		Entity* e = new Entity();
+		Entity* e = new Entity(*this);
 		std::unique_ptr<Entity> uPtr{ e };
 		entities.emplace_back(std::move(uPtr));
 		return *e;
