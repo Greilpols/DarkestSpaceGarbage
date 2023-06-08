@@ -117,6 +117,7 @@ class Manager
 {
 private:
 	std::vector<std::unique_ptr<Entity>> entities;
+	std::array<std::vector<Entity*>, maxGroups> groupedEntities;
 
 public:
 	void update()
@@ -131,6 +132,19 @@ public:
 
 	void refresh()
 	{
+		for (auto i(0u); i < maxGroups; i++) {
+			auto& vec(groupedEntities[i]);
+
+			vec.erase(
+				std::remove_if(
+					std::begin(vec), std::end(vec),
+					[i](Entity* mEntity)
+					{
+						return !mEntity->isActive() || !mEntity->hasGroup(i);
+					}),
+				std::end(vec));
+		}
+
 		entities.erase(std::remove_if(std::begin(entities), std::end(entities),
 			[](const std::unique_ptr<Entity>& mEntity)
 			{
