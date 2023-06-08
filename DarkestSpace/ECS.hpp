@@ -153,6 +153,13 @@ public:
 			std::end(entities));
 	}
 
+	void AddToGroup(Entity* mEntity, Group mGroup)
+	{
+		groupedEntities[mGroup].emplace_back(mEntity);
+	}
+
+
+
 	Entity& addEntity() {
 		Entity* e = new Entity();
 		std::unique_ptr<Entity> uPtr{ e };
