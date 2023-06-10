@@ -63,7 +63,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	}
 
 	player.addComponent<PositionComponent>(2);
-	player.addComponent<SpriteComponent>("assets/playerIcon.png");
+	player.addComponent<SpriteComponent>("assets/player_idle.png", 4, 100);
+	//commenting out old sprite component for testing animated one
+	//player.addComponent<SpriteComponent>("assets/playerIcon.png");
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
