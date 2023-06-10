@@ -53,6 +53,12 @@ public:
 
 	void update() override
 	{
+
+		if (animated)
+		{
+			srcRect.x = srcRect.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
+		}
+
 		destRect.x = static_cast<int>(position->position.x);
 		destRect.y = static_cast<int>(position->position.y);
 		destRect.w = position->width * position->scale;
