@@ -3,6 +3,8 @@
 #include "Components.hpp"
 #include "../../SDL2/include/SDL.h"
 #include "TextureManager.hpp"
+#include "Animation.hpp"
+#include <map>
 
 class SpriteComponent : public Component
 {
@@ -16,6 +18,8 @@ private:
 	int speed = 100;	//delay between frames in ms
 	
 public:
+
+	int animIndex = 0;
 
 	SpriteComponent() = default;
 	SpriteComponent(const char* path)
@@ -58,6 +62,8 @@ public:
 		{
 			srcRect.x = srcRect.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
 		}
+
+		srcRect.y = animIndex * position->height;
 
 		destRect.x = static_cast<int>(position->position.x);
 		destRect.y = static_cast<int>(position->position.y);
