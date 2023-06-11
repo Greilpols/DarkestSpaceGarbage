@@ -21,6 +21,8 @@ public:
 
 	int animIndex = 0;
 
+	std::map<const char*, Animation> animations;
+
 	SpriteComponent() = default;
 	SpriteComponent(const char* path)
 	{
@@ -31,6 +33,10 @@ public:
 	SpriteComponent(const char* path, int nFrames, int mSpeed)
 	{
 		animated = true;
+
+		Animation idle = Animation(0, 3, 100);
+		Animation walk = Animation(1, 8, 100);
+
 		frames = nFrames;
 		speed = mSpeed;
 		setTexture(path);
