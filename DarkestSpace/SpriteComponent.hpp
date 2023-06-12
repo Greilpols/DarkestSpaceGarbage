@@ -37,8 +37,11 @@ public:
 		Animation idle = Animation(0, 3, 100);
 		Animation walk = Animation(1, 8, 100);
 
-		frames = nFrames;
-		speed = mSpeed;
+		animations.emplace("Idle", idle);
+		animations.emplace("Walk", walk);
+
+		Play("Idle");
+
 		setTexture(path);
 	}
 
@@ -80,6 +83,14 @@ public:
 	void draw() override
 	{
 		TextureManager::Draw(texture, srcRect, destRect);
+	}
+
+	// cycling through the anim pieces to create the animation
+	void Play(const char* animName)
+	{
+		frames = animations[animName].frames;
+		animIndex = animations[animName].index;
+		speed = animations[animName].speed;
 	}
 
 
