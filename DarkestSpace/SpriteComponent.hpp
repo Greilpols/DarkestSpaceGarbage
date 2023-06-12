@@ -30,9 +30,9 @@ public:
 	}
 
 
-	SpriteComponent(const char* path, int nFrames, int mSpeed)
+	SpriteComponent(const char* path, bool isAnimated)
 	{
-		animated = true;
+		animated = isAnimated;
 
 		Animation idle = Animation(0, 3, 100);
 		Animation walk = Animation(1, 8, 100);
