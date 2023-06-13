@@ -4,8 +4,9 @@
 #include "PositionComponent.hpp"
 #include <SDL.h>
 
-class TileComponent : Component
+class TileComponent : public Component
 {
+public:
 	PositionComponent* transform;
 	SpriteComponent* sprite;
 

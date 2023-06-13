@@ -160,7 +160,7 @@
     <ClInclude Include="PositionComponent.hpp" />
     <ClInclude Include="SpriteComponent.hpp" />
     <ClInclude Include="TextureManager.hpp" />
-    <ClInclude Include="TileComponents.hpp" />
+    <ClInclude Include="TileComponent.hpp" />
     <ClInclude Include="Vector2D.hpp" />
   </ItemGroup>
   <ItemGroup>

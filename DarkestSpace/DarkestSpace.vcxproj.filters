@@ -77,7 +77,7 @@
     <ClInclude Include="Collision.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TileComponents.hpp">
+    <ClInclude Include="TileComponent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Animation.hpp">
