@@ -23,6 +23,9 @@ public:
 
 	std::map<const char*, Animation> animations;
 
+	//SDL_RendererFlip spriteFlip = SDL_FLIP_NONE;
+	//TODO: Fix this so can flip animations (i.e. no moonwalking walk animations)
+
 	SpriteComponent() = default;
 	SpriteComponent(const char* path)
 	{

@@ -23,7 +23,6 @@ inline ComponentID getNewComponentTypeID()
 template <typename T> inline ComponentID getComponentTypeID() noexcept
 {
 	static ComponentID typeID = getNewComponentTypeID();
-
 	return typeID;
 }
 
@@ -85,7 +84,7 @@ public:
 
 	template <typename T> bool hasComponent() const
 	{
-		return componentBitSet[getComponentTypeID<T>];	//TODO: doublecheck: should be type, no?
+		return componentBitSet[getComponentTypeID<T>];
 	}
 
 	template <typename T, typename... TArgs>
