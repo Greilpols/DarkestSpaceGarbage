@@ -84,7 +84,9 @@ public:
 
 	template <typename T> bool hasComponent() const
 	{
-		return componentBitSet[getComponentTypeID<T>];
+		return componentBitSet[getComponentTypeID<T>()];
+		// something funky going on here with overloading of the bitset stuff...
+		// need to study it closer, but should work now
 	}
 
 	template <typename T, typename... TArgs>
