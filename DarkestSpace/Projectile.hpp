@@ -6,15 +6,25 @@
 class ProjectileComponent : public Component
 {
 public:
-	ProjectileComponent(int rng, int speed)
+	ProjectileComponent(int range, int speed) : range(range), speed(speed)
 	{}
 	~ProjectileComponent();
 
 	void init() override
-	{}
+	{
+		transform = &entity->getComponent<PositionComponent>();
+	}
 
 	void update() override
-	{}
+	{
+		distance += speed;
+
+		if (distance > range)
+		{
+			entity->destroy();
+		}
+		// WIP:: else if (transform->position.x [....] ); // check if out of map
+	}
 
 private:
 
