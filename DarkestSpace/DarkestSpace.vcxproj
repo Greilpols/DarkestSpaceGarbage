@@ -164,6 +164,7 @@
     <ClInclude Include="KeyboardController.hpp" />
     <ClInclude Include="Map.hpp" />
     <ClInclude Include="PositionComponent.hpp" />
+    <ClInclude Include="Projectile.hpp" />
     <ClInclude Include="SpriteComponent.hpp" />
     <ClInclude Include="TextureManager.hpp" />
     <ClInclude Include="TileComponent.hpp" />
