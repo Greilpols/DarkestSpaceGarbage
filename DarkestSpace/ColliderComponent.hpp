@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "SDL.h"
+#include <SDL.h>
 #include "Components.hpp"
 
 class ColliderComponent : public Component

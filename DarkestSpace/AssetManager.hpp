@@ -17,6 +17,7 @@ public:
 
 private:
 
+	Manager* manager;
 	std::map<std::string, SDL_Texture*> textures;
 
 };
