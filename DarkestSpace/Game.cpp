@@ -14,6 +14,8 @@ Manager manager;
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
 
+AssetManager* Game::assets = new AssetManager(&manager);
+
 std::vector<ColliderComponent*> Game::colliders;
 
 auto& player(manager.addEntity());
@@ -75,7 +77,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	wall.addComponent<ColliderComponent>("wall");
 	wall.addGroup(groupMap);
 
-	map = new Map();
+	assets->AddTexture("terrain", "assets/terrain_ss.png");
+	assets->AddTexture("player", "resource Files/player_anims.png");
+
+	map = new Map();	// TODO: improve mappage
 
 	Map::LoadMap("assets/p16x16test1.map", 16, 16);
 
