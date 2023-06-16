@@ -89,7 +89,7 @@
     <ClInclude Include="AssetManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Projectile.hpp">
+    <ClInclude Include="ProjectileComponent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
