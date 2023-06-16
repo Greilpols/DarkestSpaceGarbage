@@ -79,6 +79,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	assets->AddTexture("terrain", "assets/terrain_ss.png");
 	assets->AddTexture("player", "resource Files/player_anims.png");
+	assets->AddTexture("projectile", "assets/projectile.png");//temp, need to make said file
+
+	assets->CreateProjectile(Vector2D(600, 600), 200, 2, "projectile");
 
 	map = new Map();	// TODO: improve mappage
 
@@ -86,7 +89,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	SDL_Surface* tmpSurface = IMG_Load("assets/player.png");
 
-}
+};
+
+auto& projectiles(manager.getGroup(Game::groupProjectiles));
+
 
 void Game::handleEvents()
 {
@@ -134,6 +140,11 @@ void Game::render() {
 	{
 		e->draw();
 	}
+	for (auto& p : projectiles)
+	{
+		p->draw();
+	}
+
 	SDL_RenderPresent(renderer);
 }
 

@@ -30,6 +30,10 @@ public:
 	static SDL_Event event;
 	static std::vector<ColliderComponent*> colliders;
 	static AssetManager* assets;
+	enum groupLabels : std::size_t
+	{
+		groupProjectiles
+	};
 
 private:
 	bool isRunning;
