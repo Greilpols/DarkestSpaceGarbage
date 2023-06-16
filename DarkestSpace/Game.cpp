@@ -120,6 +120,14 @@ void Game::update() {
 	{
 		Collision::AABB(player.getComponent<ColliderComponent>(), *cc);
 	}
+
+	for (auto& p : projectiles)
+	{
+		if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
+		{
+			p->destroy();
+		}
+	}
 }
 
 auto& tiles(manager.getGroup(groupMap));
