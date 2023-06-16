@@ -8,7 +8,8 @@ class ProjectileComponent : public Component
 public:
 	ProjectileComponent(int range, int speed) : range(range), speed(speed)
 	{}
-	~ProjectileComponent();
+	~ProjectileComponent()
+	{}
 
 	void init() override
 	{
