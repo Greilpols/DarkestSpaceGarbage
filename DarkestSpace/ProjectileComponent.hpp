@@ -6,7 +6,7 @@
 class ProjectileComponent : public Component
 {
 public:
-	ProjectileComponent(int range, int speed) : range(range), speed(speed)
+	ProjectileComponent(int range, int speed, Vector2D velocity) : range(range), speed(speed), velocity(velocity)
 	{}
 	~ProjectileComponent()
 	{}
@@ -14,6 +14,7 @@ public:
 	void init() override
 	{
 		transform = &entity->getComponent<PositionComponent>();
+		transform->velocity = velocity;
 	}
 
 	void update() override
@@ -22,6 +23,7 @@ public:
 
 		if (distance > range)
 		{
+			std::cout << "Out of range" << std::endl;
 			entity->destroy();
 		}
 		// WIP:: else if (transform->position.x [....] ); // check if out of map
@@ -31,7 +33,8 @@ private:
 
 	PositionComponent* transform;
 
-	int range;
-	int speed;
-	int distance;
+	int range = 0;
+	int speed = 0;
+	int distance = 0;
+	Vector2D velocity;
 };

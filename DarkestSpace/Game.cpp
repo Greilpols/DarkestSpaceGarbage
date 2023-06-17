@@ -81,7 +81,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	assets->AddTexture("player", "resource Files/player_anims.png");
 	assets->AddTexture("projectile", "assets/projectile.png");//temp, need to make said file
 
-	assets->CreateProjectile(Vector2D(600, 600), 200, 2, "projectile");
+	assets->CreateProjectile(Vector2D(600, 600), Vector2D(2, 0), 200, 2, "projectile");
 
 	map = new Map();	// TODO: improve mappage
 
@@ -125,6 +125,7 @@ void Game::update() {
 	{
 		if (Collision::AABB(player.getComponent<ColliderComponent>().collider, p->getComponent<ColliderComponent>().collider))
 		{
+			std::cout << "Hit player" << std::endl;
 			p->destroy();
 		}
 	}
