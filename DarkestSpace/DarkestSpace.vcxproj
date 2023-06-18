@@ -148,7 +148,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Game.hpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Vector2D.cpp" />
@@ -171,7 +171,10 @@
     <ClInclude Include="Vector2D.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\dirt.png" />
+    <Image Include="assets\grass.png" />
     <Image Include="assets\player.png" />
+    <Image Include="assets\water.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />

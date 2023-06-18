@@ -4,6 +4,7 @@
 #include "Components.hpp"
 #include "Vector2D.hpp"
 #include "Collision.hpp"
+#include "AssetManager.hpp"
 
 SDL_Texture* playerTex;
 

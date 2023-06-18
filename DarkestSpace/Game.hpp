@@ -5,8 +5,8 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <vector>
-#include "AssetManager.hpp"
 
+class AssetManager;
 class ColliderComponent;
 
 class Game
