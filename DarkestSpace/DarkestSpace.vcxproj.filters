@@ -106,6 +106,12 @@
     <Image Include="assets\grass.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\projectile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll">
