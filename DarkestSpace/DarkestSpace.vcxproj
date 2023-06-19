@@ -177,7 +177,11 @@
     <Image Include="assets\water.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\p16x16test1.map" />
+    <None Include="libpng16-16.dll" />
     <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
+    <None Include="zlib1.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
