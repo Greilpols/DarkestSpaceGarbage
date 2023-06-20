@@ -128,9 +128,9 @@ void Game::update() {
 	Vector2D pVel = player.getComponent<PositionComponent>().velocity;
 	int pSpeed = player.getComponent<PositionComponent>().speed;
 
-	for (auto cc : colliders)
+	for (auto t : tiles)
 	{
-		Collision::AABB(player.getComponent<ColliderComponent>(), *cc);
+		t->getComponent<TileComponent>().destRect.x += -(pVel.x * pSpeed);
 	}
 
 	for (auto& p : projectiles)
