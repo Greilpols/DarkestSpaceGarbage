@@ -22,6 +22,8 @@ std::vector<ColliderComponent*> Game::colliders;
 auto& player(manager.addEntity());
 auto& wall(manager.addEntity());
 
+const char* mapfile = "assets/terrain_map";
+
 enum groupLabels : std::size_t
 {
 	groupMap,

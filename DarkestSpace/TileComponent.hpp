@@ -29,4 +29,9 @@ public:
 		destRect.y = ypos;
 		destRect.w = destRect.h = 32;
 	}
+
+	void draw() override
+	{
+		TextureManager::Draw(texture, srcRect, destRect/*, SDL_FLIP_NONE*/);
+	}
 };
