@@ -23,9 +23,8 @@ public:
 
 	std::map<const char*, Animation> animations;
 
-	//SDL_RendererFlip spriteFlip = SDL_FLIP_NONE;
-	//TODO: Fix this so can flip animations (i.e. no moonwalking walk animations)
-
+	SDL_RendererFlip spriteFlip = SDL_FLIP_NONE;
+	
 	SpriteComponent() = default;
 	SpriteComponent(const char* path)
 	{
@@ -85,7 +84,7 @@ public:
 
 	void draw() override
 	{
-		TextureManager::Draw(texture, srcRect, destRect);
+		TextureManager::Draw(texture, srcRect, destRect, spriteFlip);
 	}
 
 	// cycling through the anim pieces to create the animation
