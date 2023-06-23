@@ -35,8 +35,9 @@ public:
 		groupProjectiles
 	};
 
+	static bool isRunning;
+
 private:
-	bool isRunning;
 	int cnt = 0;
 	SDL_Window* window;
 };

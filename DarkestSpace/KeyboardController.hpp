@@ -65,6 +65,8 @@ public:
 				sprite->Play("Idle");
 				sprite->spriteFlip = SDL_FLIP_NONE; //resets flip - do we want "rest" at other direction?
 				break;
+			case SDLK_ESCAPE:
+				Game::isRunning = false;
 			default:
 				break;
 			}

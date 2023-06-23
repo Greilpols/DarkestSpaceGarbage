@@ -19,6 +19,8 @@ AssetManager* Game::assets = new AssetManager(&manager);
 
 std::vector<ColliderComponent*> Game::colliders;
 
+bool Game::isRunning = false;
+
 auto& player(manager.addEntity());
 auto& wall(manager.addEntity());
 
