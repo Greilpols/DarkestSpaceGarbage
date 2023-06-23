@@ -133,6 +133,7 @@ void Game::update() {
 	for (auto t : tiles)
 	{
 		t->getComponent<TileComponent>().destRect.x += -(pVel.x * pSpeed);
+		t->getComponent<TileComponent>().destRect.y += -(pVel.y * pSpeed);
 	}
 
 	for (auto& p : projectiles)
