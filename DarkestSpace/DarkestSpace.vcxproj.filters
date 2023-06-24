@@ -112,6 +112,12 @@
     <Image Include="assets\wall.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\player_idle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\player_anims.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll">

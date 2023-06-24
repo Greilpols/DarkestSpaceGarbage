@@ -75,8 +75,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	player.addComponent<PositionComponent>(2);
 	player.addComponent<SpriteComponent>("assets/player_idle.png", true);
-	//commenting out old sprite component for testing animated one
-	//player.addComponent<SpriteComponent>("assets/playerIcon.png");
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
@@ -88,7 +86,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	assets->AddTexture("terrain", "assets/terrain_ss.png");
 	assets->AddTexture("player", "resource Files/player_anims.png");
-	assets->AddTexture("projectile", "assets/projectile.png");//temp, need to make said file
+	assets->AddTexture("projectile", "assets/projectile.png");
 
 	assets->CreateProjectile(Vector2D(600, 600), Vector2D(2, 0), 200, 2, "projectile");
 	assets->CreateProjectile(Vector2D(500, 550), Vector2D(1, 0), 200, 2, "projectile");
