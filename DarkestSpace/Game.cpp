@@ -24,7 +24,7 @@ bool Game::isRunning = false;
 auto& player(manager.addEntity());
 auto& wall(manager.addEntity());
 
-const char* mapfile = "assets/terrain_map";
+const char* mapfile = "assets/terrain_tiles.png";
 
 enum groupLabels : std::size_t
 {
@@ -83,10 +83,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	wall.addComponent<SpriteComponent>("wall.png");
 	wall.addComponent<ColliderComponent>("wall");
 	wall.addGroup(groupMap);
-
-	assets->AddTexture("terrain", "assets/terrain_ss.png");
-	assets->AddTexture("player", "resource Files/player_anims.png");
-	assets->AddTexture("projectile", "assets/projectile.png");
 
 	assets->CreateProjectile(Vector2D(600, 600), Vector2D(2, 0), 200, 2, "projectile");
 	assets->CreateProjectile(Vector2D(500, 550), Vector2D(1, 0), 200, 2, "projectile");
@@ -175,8 +171,8 @@ void Game::clean() {
 	std::cout << "Cleaned up. Exiting." << std::endl;
 }
 
-void Game::AddTile(int id, int x, int y) {
+void Game::AddTile(int srcX, int srcY, int xpos, int ypos) {
 	auto& tile(manager.addEntity());
-	tile.addComponent<TileComponent>(x, y, 32, 32, id);
+	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos, mapfile);
 	tile.addGroup(groupMap);
 }
