@@ -6,9 +6,6 @@
 #include "Collision.hpp"
 #include "AssetManager.hpp"
 
-SDL_Texture* playerTex;
-
-//something missing here
 Map* map;
 Manager manager;
 
