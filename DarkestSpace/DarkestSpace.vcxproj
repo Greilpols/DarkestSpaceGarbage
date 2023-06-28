@@ -178,6 +178,7 @@
     <Image Include="assets\player_idle.png" />
     <Image Include="assets\projectile.png" />
     <Image Include="assets\terrain_tiles.png" />
+    <Image Include="assets\test.png" />
     <Image Include="assets\wall.png" />
     <Image Include="assets\water.png" />
   </ItemGroup>
