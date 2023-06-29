@@ -77,7 +77,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	player.addGroup(groupPlayers);
 
 	wall.addComponent<PositionComponent>(300.0f, 300.0f, 300, 20, 1);
-	wall.addComponent<SpriteComponent>("wall.png");
+	wall.addComponent<SpriteComponent>("assets/wall.png");
 	wall.addComponent<ColliderComponent>("wall");
 	wall.addGroup(groupMap);
 
