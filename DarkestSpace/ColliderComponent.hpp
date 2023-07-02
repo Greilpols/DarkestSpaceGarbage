@@ -21,6 +21,14 @@ public:
 		tag = t;
 	}
 
+	ColliderComponent(std::string t, int xpos, int ypos, int size)
+	{
+		tag = t;
+		collider.x = xpos;
+		collider.y = ypos;
+		collider.h = collider.w = size;
+	}
+
 	void init() override
 	{
 		if (!entity->hasComponent<PositionComponent>())
@@ -33,7 +41,6 @@ public:
 		srcR = { 0, 0, 32, 32 };
 		destR = { collider.x, collider.y, collider.w, collider.h };
 
-		Game::colliders.push_back(this);
 	}
 
 	void update() override
