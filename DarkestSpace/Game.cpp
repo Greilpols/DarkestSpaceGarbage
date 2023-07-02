@@ -19,7 +19,6 @@ std::vector<ColliderComponent*> Game::colliders;
 bool Game::isRunning = false;
 
 auto& player(manager.addEntity());
-auto& wall(manager.addEntity());
 
 const char* mapfile = "assets/terrain_tiles.png";
 
@@ -76,10 +75,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
 
-	wall.addComponent<PositionComponent>(300.0f, 300.0f, 300, 20, 1);
+	/*wall.addComponent<PositionComponent>(300.0f, 300.0f, 300, 20, 1);
 	wall.addComponent<SpriteComponent>("assets/wall.png");
 	wall.addComponent<ColliderComponent>("wall");
-	wall.addGroup(groupMap);
+	wall.addGroup(groupMap);*/
 
 	assets->CreateProjectile(Vector2D(600, 600), Vector2D(2, 0), 200, 2, "projectile");
 	assets->CreateProjectile(Vector2D(500, 550), Vector2D(1, 0), 200, 2, "projectile");
