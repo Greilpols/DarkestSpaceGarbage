@@ -14,25 +14,9 @@ SDL_Event Game::event;
 
 AssetManager* Game::assets = new AssetManager(&manager);
 
-std::vector<ColliderComponent*> Game::colliders;
-
 bool Game::isRunning = false;
 
 auto& player(manager.addEntity());
-
-const char* mapfile = "assets/terrain_tiles.png";
-
-enum groupLabels : std::size_t
-{
-	groupMap,
-	groupPlayers,
-	groupEnemies,
-	groupColliders
-};
-
-auto& tiles(manager.getGroup(groupMap));
-auto& players(manager.getGroup(groupPlayers));
-auto& enemies(manager.getGroup(groupEnemies));
 
 Game::Game()
 {}
@@ -89,7 +73,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	assets->AddTexture("terrain", "assets/terrain_tiles.png");
 	assets->AddTexture("player", "assets/player_anims.png");
 
-	map = new Map("terrain", 3, 32);
+	map = new Map("assets/terrain_tiles.png", 3, 32);
 
 	map->LoadMap("assets/p16x16test1.map", 16, 16);
 
@@ -97,6 +81,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 };
 
+auto& tiles(manager.getGroup(Game::groupMap));
+auto& players(manager.getGroup(Game::groupPlayers));
 auto& projectiles(manager.getGroup(Game::groupProjectiles));
 
 
@@ -151,10 +137,6 @@ void Game::render() {
 	{
 		p->draw();
 	}
-	for (auto& e : enemies)
-	{
-		e->draw();
-	}
 	for (auto& p : projectiles)
 	{
 		p->draw();
@@ -170,8 +152,3 @@ void Game::clean() {
 	std::cout << "Cleaned up. Exiting." << std::endl;
 }
 
-void Game::AddTile(int srcX, int srcY, int xpos, int ypos) {
-	auto& tile(manager.addEntity());
-	tile.addComponent<TileComponent>(srcX, srcY, xpos, ypos, mapfile);
-	tile.addGroup(groupMap);
-}
