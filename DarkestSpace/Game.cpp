@@ -109,6 +109,7 @@ void Game::update() {
 	manager.refresh();
 	manager.update();
 
+	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
 	Vector2D pVel = player.getComponent<PositionComponent>().velocity;
 	int pSpeed = player.getComponent<PositionComponent>().speed;
 
