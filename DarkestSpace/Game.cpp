@@ -14,6 +14,7 @@ SDL_Event Game::event;
 
 AssetManager* Game::assets = new AssetManager(&manager);
 
+SDL_Rect Game::camera = { 0, 0, 800, 640 };
 bool Game::isRunning = false;
 
 auto& player(manager.addEntity());
@@ -125,6 +126,17 @@ void Game::update() {
 			p->destroy();
 		}
 	}
+	camera.x = player.getComponent<PositionComponent>().position.x - 400;
+	camera.y = player.getComponent<PositionComponent>().position.y - 320;
+
+	if (camera.x < 0)
+		camera.x = 0;
+	if (camera.y < 0)
+		camera.y = 0;
+	if (camera.x > camera.w)
+		camera.x = camera.w;
+	if (camera.x > camera.h)
+		camera.x = camera.h;
 }
 
 void Game::render() {
