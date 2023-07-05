@@ -84,6 +84,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 auto& tiles(manager.getGroup(Game::groupMap));
 auto& players(manager.getGroup(Game::groupPlayers));
+auto& colliders(manager.getGroup(Game::groupColliders));
 auto& projectiles(manager.getGroup(Game::groupProjectiles));
 
 
