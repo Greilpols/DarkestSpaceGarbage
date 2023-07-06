@@ -90,6 +90,7 @@ auto& projectiles(manager.getGroup(Game::groupProjectiles));
 
 void Game::handleEvents()
 {
+	std::cout << "event" << std::endl;
 	SDL_Event event;
 
 
@@ -106,18 +107,22 @@ void Game::handleEvents()
 }
 
 void Game::update() {
+	std::cout << "update" << std::endl;
 
 	manager.refresh();
 	manager.update();
 
 	SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
-	Vector2D pVel = player.getComponent<PositionComponent>().velocity;
-	int pSpeed = player.getComponent<PositionComponent>().speed;
+	Vector2D playerPos = player.getComponent<PositionComponent>().position;
+	
 
-	for (auto t : tiles)
+	for (auto& c : colliders)
 	{
-		t->getComponent<TileComponent>().destRect.x += -(pVel.x * pSpeed);
-		t->getComponent<TileComponent>().destRect.y += -(pVel.y * pSpeed);
+		SDL_Rect cCol = c->getComponent<ColliderComponent>().collider;
+		if (Collision::AABB(cCol, playerCol))
+		{
+			player.getComponent<PositionComponent>().position = playerPos;
+		}
 	}
 
 	for (auto& p : projectiles)
@@ -155,7 +160,7 @@ void Game::render() {
 	{
 		p->draw();
 	}
-
+	//...am i not drawing player?
 	SDL_RenderPresent(renderer);
 }
 
