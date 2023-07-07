@@ -171,6 +171,7 @@
     <ClInclude Include="Vector2D.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\collish.png" />
     <Image Include="assets\dirt.png" />
     <Image Include="assets\grass.png" />
     <Image Include="assets\player.png" />

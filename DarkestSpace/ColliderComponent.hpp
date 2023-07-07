@@ -37,7 +37,7 @@ public:
 		}
 		transform = &entity->getComponent<PositionComponent>();
 
-		tex = TextureManager::LoadTexture("assets/test.png");
+		tex = TextureManager::LoadTexture("collish/test.png");
 		srcR = { 0, 0, 32, 32 };
 		destR = { collider.x, collider.y, collider.w, collider.h };
 
@@ -45,10 +45,16 @@ public:
 
 	void update() override
 	{
-		collider.x = static_cast<int>(transform->position.x);
-		collider.x = static_cast<int>(transform->position.y);
-		collider.w = transform->width * transform->scale;
-		collider.h = transform->height * transform->scale;
+		if (tag != "terrain")
+		{
+			collider.x = static_cast<int>(transform->position.x);
+			collider.x = static_cast<int>(transform->position.y);
+			collider.w = transform->width * transform->scale;
+			collider.h = transform->height * transform->scale;
+		}
+
+		destR.x = collider.x - Game::camera.x;
+		destR.y = collider.y - Game::camera.y;
 	}
 
 	void draw() override

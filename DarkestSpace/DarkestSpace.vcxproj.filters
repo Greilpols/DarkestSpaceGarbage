@@ -124,6 +124,9 @@
     <Image Include="assets\test.png">
       <Filter>assets</Filter>
     </Image>
+    <Image Include="assets\collish.png">
+      <Filter>assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll">
