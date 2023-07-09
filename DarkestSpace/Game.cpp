@@ -156,6 +156,10 @@ void Game::render() {
 	{
 		p->draw();
 	}
+	for (auto& c : colliders)
+	{
+		c->draw();
+	}
 	for (auto& p : projectiles)
 	{
 		p->draw();
