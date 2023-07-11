@@ -37,7 +37,7 @@ public:
 		}
 		transform = &entity->getComponent<PositionComponent>();
 
-		tex = TextureManager::LoadTexture("collish/test.png");
+		tex = TextureManager::LoadTexture("assets/test.png");
 		srcR = { 0, 0, 32, 32 };
 		destR = { collider.x, collider.y, collider.w, collider.h };
 
