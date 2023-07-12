@@ -27,7 +27,13 @@ public:
 			std::cout << "Out of range" << std::endl;
 			entity->destroy();
 		}
-		// WIP:: else if (transform->position.x [....] ); // check if out of map
+		else if (transform->position.x > Game::camera.x + Game::camera.w ||
+			transform->position.x < Game::camera.x ||
+			transform->position.y > Game::camera.y + Game::camera.h ||
+			transform->position.y < Game::camera.y)
+		{
+			entity->destroy();
+		}
 	}
 
 private:
