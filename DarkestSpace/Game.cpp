@@ -73,6 +73,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	assets->AddTexture("terrain", "assets/terrain_tiles.png");
 	assets->AddTexture("player", "assets/player_anims.png");
+	assets->AddTexture("projectile", "assets/projectile.png");
 
 	map = new Map("assets/terrain_tiles.png", 3, 32);
 
