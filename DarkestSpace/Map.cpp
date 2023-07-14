@@ -32,7 +32,7 @@ void Map::LoadMap(std::string path, int sizeX, int sizeY) {
 			srcY = atoi(&c) * tileSize;
 			mapFile.get(c);
 			srcX = atoi(&c) * tileSize;
-			AddTile(srcX, srcY, x * (tileSize * scaledSize), y * (tileSize * scaledSize));
+			AddTile(srcX, srcY, x  * scaledSize, y * scaledSize);
 			mapFile.ignore();
 		}
 	}
