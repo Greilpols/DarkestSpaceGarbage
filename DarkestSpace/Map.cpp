@@ -28,6 +28,8 @@ void Map::LoadMap(std::string path, int sizeX, int sizeY) {
 	{
 		for (int x = 0; x < sizeX; x++)
 		{
+			// for tiles syntax is two ## followed by escaped char
+			// simply due to needing more than single file tiles eventually
 			mapFile.get(c);
 			srcY = atoi(&c) * tileSize;
 			mapFile.get(c);
@@ -43,7 +45,8 @@ void Map::LoadMap(std::string path, int sizeX, int sizeY) {
 	{
 		for (int x = 0; x < sizeX; x++)
 		{
-			std::cout << "map numbers " << y << "   " << x << std::endl;
+			// for 'walls' (collision tiles) syntax is simply # followed by escaped char
+			// hence beware: map file has differing size in walls to tiles
 			mapFile.get(c);
 			if (c == '1')
 			{
