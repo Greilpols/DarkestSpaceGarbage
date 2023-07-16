@@ -55,7 +55,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	}
 
 	player.addComponent<PositionComponent>(200.0f, 300.0f, 32, 32, 4);
-	player.addComponent<SpriteComponent>("assets/player_idle.png", true);
+	player.addComponent<SpriteComponent>("assets/player_anims.png", true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
