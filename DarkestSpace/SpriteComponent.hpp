@@ -27,9 +27,9 @@ public:
 	SDL_RendererFlip spriteFlip = SDL_FLIP_NONE;
 	
 	SpriteComponent() = default;
-	SpriteComponent(const char* path)
+	SpriteComponent(std::string id)
 	{
-		setTexture(path);
+		setTexture(id);
 	}
 
 
@@ -76,7 +76,7 @@ public:
 
 		srcRect.y = animIndex * position->height;
 
-		destRect.x = static_cast<int>(position->position.x) - Game::camera.x;
+		destRect.x = static_cast<int>(position->position.x) - Game::camera.x;// position to position? hmm fix needed
 		destRect.y = static_cast<int>(position->position.y) - Game::camera.y;
 		destRect.w = position->width * position->scale;
 		destRect.h = position->height * position->scale;
